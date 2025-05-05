@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
+  <div class="parallax-bg"></div>
   <nav class="navbar">
     <div class="logo">📻 GMS</div>
     <div class="nav-links">
@@ -34,26 +35,11 @@
   <main>
     <section class="playlist-section">
       <h1>Playlists</h1>
-      <div class="playlist">
-        <h2>Afrobeat Vibes</h2>
-        <div class="media-card">
-          <audio id="playlist-audio-1" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-          <h3>Afrobeat Hit</h3>
-          <p>Burna Boy</p>
-          <button class="play-btn" data-id="1">Play</button>
-          <canvas class="visualizer" width="200" height="50"></canvas>
-        </div>
-        <button class="playlist-btn">Play All</button>
+      <div class="create-playlist">
+        <input type="text" id="playlist-name" placeholder="New Playlist Name">
+        <button id="create-playlist-btn">Create</button>
       </div>
-      <div class="playlist">
-        <h2>Pop Hits</h2>
-        <div class="media-card">
-          <video id="playlist-video-1" src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video>
-          <h3>Pop Video</h3>
-          <p>Taylor Swift</p>
-        </div>
-        <button class="playlist-btn">Play All</button>
-      </div>
+      <div id="playlists"></div>
     </section>
   </main>
   <footer>
