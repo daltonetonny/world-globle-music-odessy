@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
+  <div class="parallax-bg"></div>
   <nav class="navbar">
     <div class="logo">📻 GMS</div>
     <div class="nav-links">
@@ -34,19 +35,23 @@
   <main>
     <section class="hero">
       <h1>Global Media Surf</h1>
-      <p>Discover music and videos from around the world!</p>
+      <p>Discover music and videos from YouTube, SoundCloud, and more!</p>
       <div class="search-bar">
-        <input type="text" id="search-input" placeholder="Search music or videos...">
+        <input type="text" id="search-input" placeholder="Search media...">
         <button id="search-btn">🔍</button>
       </div>
-      <div class="featured">
-        <h2>Featured Media</h2>
+      <div class="carousel">
         <div class="media-card">
-          <audio id="featured-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-          <h3>Song Title</h3>
-          <p>Artist Name</p>
+          <audio id="carousel-audio-1" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+          <h3>Afrobeat Hit</h3>
+          <p>Burna Boy</p>
           <button class="play-btn">Play</button>
           <canvas class="visualizer" width="200" height="50"></canvas>
+        </div>
+        <div class="media-card">
+          <video id="carousel-video-1" src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video>
+          <h3>Pop Video</h3>
+          <p>Taylor Swift</p>
         </div>
       </div>
     </section>
