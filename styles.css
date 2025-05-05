@@ -20,6 +20,12 @@ body {
   background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa') center/cover;
   opacity: 0.2;
   z-index: -1;
+  animation: parallax 20s linear infinite;
+}
+
+@keyframes parallax {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -100px; }
 }
 
 .navbar {
@@ -32,6 +38,7 @@ body {
   width: 100%;
   top: 0;
   z-index: 100;
+  box-shadow: 0 0 10px #3B82F6;
 }
 
 .logo {
@@ -39,13 +46,19 @@ body {
   font-weight: 700;
   color: #3B82F6;
   text-shadow: 0 0 5px #3B82F6;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 5px #3B82F6; }
+  50% { text-shadow: 0 0 15px #3B82F6; }
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  margin: 0 1rem;
-  font-size: 1rem;
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
   transition: color 0.3s, text-shadow 0.3s;
 }
 
@@ -80,7 +93,7 @@ body {
   }
 }
 
-.hero, .search-section, .playlist-section, .about-section {
+.hero, .search-section, .playlist-section, .artists-section, .genres-section, .trending-section, .new-releases-section, .festivals-section, .community-section, .history-section, .favorites-section, .events-section, .about-section, .settings-section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -89,6 +102,7 @@ body {
   padding: 2rem;
   text-align: center;
   animation: fadeIn 1s ease-in;
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1));
 }
 
 @keyframes fadeIn {
@@ -97,19 +111,26 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: 1rem 0;
   text-shadow: 0 0 10px #3B82F6;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin: 1rem 0;
   color: #EC4899;
+  text-shadow: 0 0 5px #EC4899;
 }
 
-p, ul {
-  font-size: 1.2rem;
+p, ul, form {
+  font-size: 1.1rem;
   max-width: 800px;
 }
 
@@ -120,6 +141,11 @@ ul {
 
 ul li {
   margin: 0.5rem 0;
+  transition: transform 0.3s;
+}
+
+ul li:hover {
+  transform: translateX(5px);
 }
 
 ul li a {
@@ -129,36 +155,44 @@ ul li a {
 
 ul li a:hover {
   text-decoration: underline;
+  color: #8B5CF6;
 }
 
-.search-bar {
+.search-bar, .create-playlist, .comment-form {
   display: flex;
   margin: 2rem 0;
+  gap: 0.5rem;
 }
 
-.search-bar input {
+.search-bar input, .create-playlist input, .comment-form input, .comment-form textarea {
   padding: 0.5rem;
   font-size: 1rem;
   border: none;
-  border-radius: 20px 0 0 20px;
-  width: 300px;
+  border-radius: 20px;
   background: #2d2d44;
   color: #fff;
+  width: 250px;
+  transition: box-shadow 0.3s;
 }
 
-.search-bar button {
+.search-bar input:focus, .create-playlist input:focus, .comment-form input:focus, .comment-form textarea:focus {
+  box-shadow: 0 0 10px #3B82F6;
+  outline: none;
+}
+
+.search-bar button, .create-playlist button, .comment-form button {
   padding: 0.5rem 1rem;
   background: #EC4899;
   color: #fff;
   border: none;
-  border-radius: 0 20px 20px 0;
+  border-radius: 20px;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
 }
 
-.search-bar button:hover {
+.search-bar button:hover, .create-playlist button:hover, .comment-form button:hover {
   background: #8B5CF6;
-  transform: scale(1.1);
+  transform: rotate(360deg);
 }
 
 .filters {
@@ -174,53 +208,61 @@ ul li a:hover {
   background: #2d2d44;
   color: #fff;
   border: none;
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .filters select:hover {
   box-shadow: 0 0 5px #3B82F6;
+  transform: scale(1.05);
 }
 
-.carousel, #search-results, .playlist {
+.carousel, #search-results, #playlists, #artist-list, #genre-list, #trending-list, #new-releases-list, #festival-list, #comment-list, #history-list, #favorites-list, #events-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
 }
 
-.media-card {
+.media-card, .playlist, .artist-card, .genre-card, .event-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 1rem;
   margin: 1rem;
-  width: 300px;
+  width: 280px;
   text-align: left;
   transition: transform 0.3s, box-shadow 0.3s;
+  animation: slideIn 0.5s ease-in;
 }
 
-.media-card:hover {
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.media-card:hover, .playlist:hover, .artist-card:hover, .genre-card:hover, .event-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 15px #3B82F6;
 }
 
-.media-card h3 {
+.media-card h3, .playlist h3, .artist-card h3, .genre-card h3, .event-card h3 {
   font-size: 1.2rem;
   color: #3B82F6;
 }
 
-.media-card p {
+.media-card p, .playlist p, .artist-card p, .genre-card p, .event-card p {
   font-size: 1rem;
   color: #d1d5db;
 }
 
-.media-card audio, .media-card video {
+.media-card audio, .media-card video, .artist-card audio, .artist-card video {
   width: 100%;
   margin-top: 0.5rem;
+  border-radius: 5px;
 }
 
-.play-btn, .playlist-btn, .confetti-btn {
+.play-btn, .playlist-btn, .confetti-btn, .favorite-btn, .settings-btn {
   background: #EC4899;
   color: #fff;
   border: none;
@@ -228,9 +270,10 @@ ul li a:hover {
   border-radius: 20px;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
+  margin: 0.5rem 0;
 }
 
-.play-btn:hover, .playlist-btn:hover, .confetti-btn:hover {
+.play-btn:hover, .playlist-btn:hover, .confetti-btn:hover, .favorite-btn:hover, .settings-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 0 10px #EC4899;
 }
@@ -238,6 +281,7 @@ ul li a:hover {
 .visualizer {
   margin-top: 1rem;
   border: 1px solid #3B82F6;
+  border-radius: 5px;
 }
 
 .rating {
@@ -248,14 +292,41 @@ ul li a:hover {
   cursor: pointer;
   color: #d1d5db;
   font-size: 1.2rem;
+  transition: color 0.3s;
 }
 
-.star.active {
+.star.active, .star:hover {
   color: #EC4899;
+}
+
+.comment {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.countdown {
+  font-size: 1.2rem;
+  color: #3B82F6;
+  animation: pulse 1s infinite;
+}
+
+.settings-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.settings-section label {
+  font-size: 1.1rem;
 }
 
 footer {
   text-align: center;
   padding: 1rem;
   background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 -2px 10px #3B82F6;
 }
