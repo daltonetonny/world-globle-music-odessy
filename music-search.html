@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
+  <div class="parallax-bg"></div>
   <nav class="navbar">
     <div class="logo">📻 GMS</div>
     <div class="nav-links">
@@ -35,7 +36,7 @@
     <section class="search-section">
       <h1>Music Search</h1>
       <div class="search-bar">
-        <input type="text" id="music-search-input" placeholder="Search music...">
+        <input type="text" id="music-search-input" placeholder="Search music or artists...">
         <button id="music-search-btn">🔍</button>
       </div>
       <div class="filters">
@@ -50,24 +51,10 @@
           <option value="pop">Pop</option>
           <option value="rock">Rock</option>
           <option value="kpop">K-pop</option>
+          <option value="jazz">Jazz</option>
         </select>
       </div>
-      <div id="search-results">
-        <div class="media-card">
-          <audio id="audio-1" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-          <h3>Afrobeat Hit</h3>
-          <p>Burna Boy - YouTube</p>
-          <button class="play-btn" data-id="1">Play</button>
-          <canvas class="visualizer" width="200" height="50"></canvas>
-          <div class="rating">
-            <span class="star" data-value="1">★</span>
-            <span class="star" data-value="2">★</span>
-            <span class="star" data-value="3">★</span>
-            <span class="star" data-value="4">★</span>
-            <span class="star" data-value="5">★</span>
-          </div>
-        </div>
-      </div>
+      <div id="search-results"></div>
     </section>
   </main>
   <footer>
