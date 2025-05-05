@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Media Surf</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">📻 GMS</div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="music-search.html">Music Search</a>
+      <a href="video-search.html">Video Search</a>
+      <a href="playlists.html">Playlists</a>
+      <a href="artists.html">Artists</a>
+      <a href="genres.html">Genres</a>
+      <a href="trending.html">Trending</a>
+      <a href="new-releases.html">New Releases</a>
+      <a href="festivals.html">Festivals</a>
+      <a href="community.html">Community</a>
+      <a href="history.html">History</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="events.html">Events</a>
+      <a href="about.html">About</a>
+      <a href="settings.html">Settings</a>
+    </div>
+    <div class="menu-toggle">☰</div>
+  </nav>
+  <main>
+    <section class="hero">
+      <h1>Global Media Surf</h1>
+      <p>Discover music and videos from around the world!</p>
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search music or videos...">
+        <button id="search-btn">🔍</button>
+      </div>
+      <div class="featured">
+        <h2>Featured Media</h2>
+        <div class="media-card">
+          <audio id="featured-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+          <h3>Song Title</h3>
+          <p>Artist Name</p>
+          <button class="play-btn">Play</button>
+          <canvas class="visualizer" width="200" height="50"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Global Media Surf. Created by Daltone Tonny.</p>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
